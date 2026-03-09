@@ -48,9 +48,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif}
 .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;max-width:1200px;margin:0 auto}
 .product-card{background:var(--bg);border-radius:16px;overflow:hidden;transition:all .3s;box-shadow:0 4px 15px rgba(0,0,0,.05)}
 .product-card:hover{transform:translateY(-8px);box-shadow:0 12px 40px rgba(0,0,0,.12)}
-.product-img{width:100%;height:280px;overflow:hidden;background:#f5ebe0}
-.product-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
-.product-card:hover .product-img img{transform:scale(1.05)}
+.product-img{width:100%;height:280px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--white);font-weight:700;text-align:center;padding:20px;background:linear-gradient(135deg,var(--accent),var(--primary))}
 .product-info{padding:24px}
 .product-name{font-size:1.2rem;font-weight:700;margin-bottom:5px}
 .product-size{font-size:.9rem;color:#888;margin-bottom:12px}
@@ -139,10 +137,9 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif}
 <ul class="nav-links" id="navLinks">
 <li><a href="#home" onclick="closeMenu()">Home</a></li>
 <li><a href="#products" onclick="closeMenu()">Products</a></li>
-<li><a href="#features" onclick="closeMenu()">Why Us</a></li>
 <li><a href="#about" onclick="closeMenu()">About</a></li>
 <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
-<li><a href="https://wa.me/2348130291398" class="nav-cta" target="_blank"><i class="fab fa-whatsapp"></i> Order Now</a></li>
+<li><a href="https://wa.me/2348000000000" class="nav-cta" target="_blank"><i class="fab fa-whatsapp"></i> Order Now</a></li>
 </ul>
 <div class="hamburger" id="hamburger" onclick="toggleMenu()">
 <span></span><span></span><span></span>
@@ -153,9 +150,9 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif}
 <!-- HERO -->
 <section class="hero" id="home">
 <div class="hero-content">
-<h1 class="fade-in">Premium <span>Palm Oil</span><br>From the Heart of Nigeria</h1>
-<p class="fade-in">Pure, fresh, and naturally processed palm oil delivered straight to your doorstep. From 10L to 50L - we have the perfect size for your home or business.</p>
-<a href="#products" class="hero-btn fade-in">Shop Now</a>
+<h1>Premium Nigerian <span>Palm Oil</span></h1>
+<p>Pure. Natural. Delivered Fresh to Your Doorstep.<br>From the finest palm farms in Nigeria to your kitchen.</p>
+<a href="#products" class="hero-btn">Shop Now <i class="fas fa-arrow-right"></i></a>
 </div>
 </section>
 
@@ -166,62 +163,62 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif}
 <div class="product-grid">
 
 <div class="product-card fade-in">
-<div class="product-img"><img src="images/10L_jerrycan.jpg" alt="10L Jerrycan of Johnapuls Palm Oil" onerror="this.parentElement.innerHTML='<div style=padding:60px;text-align:center;background:linear-gradient(135deg,#CC5500,#8B1A1A);color:#fff;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center><i class=fas&nbsp;fa-oil-can style=font-size:3rem;margin-bottom:15px></i><strong>10L Jerrycan</strong></div>'"></div>
+<div class="product-img">10L<br>Jerrycan</div>
 <div class="product-info">
 <div class="product-name">Palm Oil - Jerrycan</div>
 <div class="product-size">10 Litres</div>
 <div class="product-price">&#8358;25,000</div>
-<a href="https://wa.me/2348130291398?text=Hello!%20I%20want%20to%20order%20a%2010L%20Jerrycan%20of%20Palm%20Oil" class="product-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+<a href="https://wa.me/2348000000000?text=Hello!%20I%20want%20to%20order%20a%2010L%20Jerrycan%20of%20Palm%20Oil" class="product-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
 </div>
 </div>
 
 <div class="product-card fade-in">
-<div class="product-img"><img src="images/10L_gallon.jpg" alt="10L Gallon of Johnapuls Palm Oil" onerror="this.parentElement.innerHTML='<div style=padding:60px;text-align:center;background:linear-gradient(135deg,#CC5500,#8B1A1A);color:#fff;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center><i class=fas&nbsp;fa-oil-can style=font-size:3rem;margin-bottom:15px></i><strong>10L Gallon</strong></div>'"></div>
+<div class="product-img">10L<br>Gallon</div>
 <div class="product-info">
 <div class="product-name">Palm Oil - Gallon</div>
 <div class="product-size">10 Litres</div>
 <div class="product-price">&#8358;25,000</div>
-<a href="https://wa.me/2348130291398?text=Hello!%20I%20want%20to%20order%20a%2010L%20Gallon%20of%20Palm%20Oil" class="product-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+<a href="https://wa.me/2348000000000?text=Hello!%20I%20want%20to%20order%20a%2010L%20Gallon%20of%20Palm%20Oil" class="product-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
 </div>
 </div>
 
 <div class="product-card fade-in">
-<div class="product-img"><img src="images/25L_jerrycan.jpg" alt="25L Jerrycan of Johnapuls Palm Oil" onerror="this.parentElement.innerHTML='<div style=padding:60px;text-align:center;background:linear-gradient(135deg,#CC5500,#8B1A1A);color:#fff;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center><i class=fas&nbsp;fa-oil-can style=font-size:3rem;margin-bottom:15px></i><strong>25L Jerrycan</strong></div>'"></div>
+<div class="product-img">25L<br>Jerrycan</div>
 <div class="product-info">
 <div class="product-name">Palm Oil - Jerrycan</div>
 <div class="product-size">25 Litres</div>
 <div class="product-price">&#8358;55,000</div>
-<a href="https://wa.me/2348130291398?text=Hello!%20I%20want%20to%20order%20a%2025L%20Jerrycan%20of%20Palm%20Oil" class="product-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+<a href="https://wa.me/2348000000000?text=Hello!%20I%20want%20to%20order%20a%2025L%20Jerrycan%20of%20Palm%20Oil" class="product-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
 </div>
 </div>
 
 <div class="product-card fade-in">
-<div class="product-img"><img src="images/25L_gallon.jpg" alt="25L Gallon of Johnapuls Palm Oil" onerror="this.parentElement.innerHTML='<div style=padding:60px;text-align:center;background:linear-gradient(135deg,#CC5500,#8B1A1A);color:#fff;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center><i class=fas&nbsp;fa-oil-can style=font-size:3rem;margin-bottom:15px></i><strong>25L Gallon</strong></div>'"></div>
+<div class="product-img">25L<br>Gallon</div>
 <div class="product-info">
 <div class="product-name">Palm Oil - Gallon</div>
 <div class="product-size">25 Litres</div>
 <div class="product-price">&#8358;55,000</div>
-<a href="https://wa.me/2348130291398?text=Hello!%20I%20want%20to%20order%20a%2025L%20Gallon%20of%20Palm%20Oil" class="product-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+<a href="https://wa.me/2348000000000?text=Hello!%20I%20want%20to%20order%20a%2025L%20Gallon%20of%20Palm%20Oil" class="product-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
 </div>
 </div>
 
 <div class="product-card fade-in">
-<div class="product-img"><img src="images/50L_jerrycan.jpg" alt="50L Jerrycan of Johnapuls Palm Oil" onerror="this.parentElement.innerHTML='<div style=padding:60px;text-align:center;background:linear-gradient(135deg,#CC5500,#8B1A1A);color:#fff;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center><i class=fas&nbsp;fa-oil-can style=font-size:3rem;margin-bottom:15px></i><strong>50L Jerrycan</strong></div>'"></div>
+<div class="product-img">50L<br>Jerrycan</div>
 <div class="product-info">
 <div class="product-name">Palm Oil - Jerrycan</div>
 <div class="product-size">50 Litres</div>
 <div class="product-price">&#8358;95,000</div>
-<a href="https://wa.me/2348130291398?text=Hello!%20I%20want%20to%20order%20a%2050L%20Jerrycan%20of%20Palm%20Oil" class="product-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+<a href="https://wa.me/2348000000000?text=Hello!%20I%20want%20to%20order%20a%2050L%20Jerrycan%20of%20Palm%20Oil" class="product-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
 </div>
 </div>
 
 <div class="product-card fade-in">
-<div class="product-img"><img src="images/50L_gallon.jpg" alt="50L Gallon of Johnapuls Palm Oil" onerror="this.parentElement.innerHTML='<div style=padding:60px;text-align:center;background:linear-gradient(135deg,#CC5500,#8B1A1A);color:#fff;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center><i class=fas&nbsp;fa-oil-can style=font-size:3rem;margin-bottom:15px></i><strong>50L Gallon</strong></div>'"></div>
+<div class="product-img">50L<br>Gallon</div>
 <div class="product-info">
 <div class="product-name">Palm Oil - Gallon</div>
 <div class="product-size">50 Litres</div>
 <div class="product-price">&#8358;95,000</div>
-<a href="https://wa.me/2348130291398?text=Hello!%20I%20want%20to%20order%20a%2050L%20Gallon%20of%20Palm%20Oil" class="product-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+<a href="https://wa.me/2348000000000?text=Hello!%20I%20want%20to%20order%20a%2050L%20Gallon%20of%20Palm%20Oil" class="product-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
 </div>
 </div>
 
@@ -239,19 +236,19 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif}
 <p>No additives, no preservatives. Just pure, natural palm oil the way nature intended.</p>
 </div>
 <div class="feature-card fade-in">
+<div class="feature-icon"><i class="fas fa-seedling"></i></div>
+<h3>Farm Fresh</h3>
+<p>Sourced directly from trusted palm oil farms across Nigeria for guaranteed freshness.</p>
+</div>
+<div class="feature-card fade-in">
 <div class="feature-icon"><i class="fas fa-truck"></i></div>
 <h3>Fast Delivery</h3>
-<p>We deliver to all 36 states in Nigeria. Quick, safe, and reliable shipping to your door.</p>
+<p>We deliver within 24-48 hours anywhere in Nigeria. Your oil arrives fresh and fast.</p>
 </div>
 <div class="feature-card fade-in">
-<div class="feature-icon"><i class="fas fa-medal"></i></div>
-<h3>Premium Quality</h3>
-<p>Sourced from the finest palm fruits and processed with the highest standards of hygiene.</p>
-</div>
-<div class="feature-card fade-in">
-<div class="feature-icon"><i class="fas fa-hand-holding-heart"></i></div>
+<div class="feature-icon"><i class="fas fa-tag"></i></div>
 <h3>Best Prices</h3>
-<p>Competitive wholesale and retail prices. Bulk discounts available for businesses.</p>
+<p>Competitive wholesale and retail prices. Premium quality without the premium markup.</p>
 </div>
 </div>
 </section>
@@ -260,8 +257,8 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif}
 <section class="section about" id="about">
 <h2 class="section-title fade-in">About Us</h2>
 <div class="about-content fade-in">
-<p>Johnapul's Oil is a trusted Nigerian palm oil brand dedicated to delivering the purest, freshest palm oil to homes and businesses across the country. Our oil is carefully sourced from premium palm fruits and processed using traditional methods that preserve its rich flavor and natural nutrients.</p>
-<p>Whether you need palm oil for your kitchen, restaurant, or wholesale business, we have the right size and the right price for you. From our family to yours, we guarantee quality in every drop.</p>
+<p>Johnapul's Oil is a trusted supplier of premium Nigerian palm oil. We source directly from local farms to bring you the freshest, purest palm oil for your cooking needs.</p>
+<p>Whether you need 10 litres for your home or 50 litres for your business, we deliver quality you can taste. Our commitment to purity and freshness has made us a preferred choice for families and restaurants across Nigeria.</p>
 </div>
 </section>
 
@@ -278,7 +275,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif}
 </div>
 <div class="testimonial-card fade-in">
 <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-<p>I run a restaurant and Johnapul's Oil is my go-to supplier. Consistent quality, great prices, and they always deliver on time. Highly recommended!</p>
+<p>I run a restaurant and I buy the 50L gallon regularly. The quality is consistent every time and the delivery is always on time. Highly recommended!</p>
 <div class="author">Chef Emeka Nnamdi</div>
 <div class="location">Abuja, Nigeria</div>
 </div>
@@ -298,17 +295,17 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif}
 <div class="contact-wrapper fade-in">
 <div class="contact-info">
 <h3>Contact Information</h3>
-<div class="contact-item"><i class="fab fa-whatsapp"></i><span>+234 813 029 1398</span></div>
-<div class="contact-item"><i class="fas fa-phone"></i><span>+234 813 029 1398</span></div>
+<div class="contact-item"><i class="fas fa-phone"></i><span>+234 800 000 0000</span></div>
 <div class="contact-item"><i class="fas fa-envelope"></i><span>orders@johnapulsoil.com</span></div>
 <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Warri, Delta State, Nigeria</span></div>
-<a href="https://wa.me/2348130291398?text=Hello!%20I%20am%20interested%20in%20ordering%20palm%20oil" class="contact-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+<a href="https://wa.me/2348000000000?text=Hello!%20I%20am%20interested%20in%20ordering%20palm%20oil" class="contact-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
 </div>
 <form class="contact-form" onsubmit="handleSubmit(event)">
 <input type="text" placeholder="Your Name" required>
 <input type="tel" placeholder="Phone Number" required>
-<textarea placeholder="Your Message" required></textarea>
-<button type="submit"><i class="fab fa-whatsapp"></i> Send via WhatsApp</button>
+<input type="email" placeholder="Email Address">
+<textarea placeholder="Your Message (e.g. I want to order 25L Jerrycan)" required></textarea>
+<button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
 </form>
 </div>
 </section>
@@ -319,14 +316,14 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif}
 <a href="#"><i class="fab fa-facebook"></i></a>
 <a href="#"><i class="fab fa-instagram"></i></a>
 <a href="#"><i class="fab fa-twitter"></i></a>
-<a href="https://wa.me/2348130291398" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a href="#"><i class="fab fa-whatsapp"></i></a>
 </div>
 <p>Premium Palm Oil from Nigeria</p>
 <p>&copy; 2026 Johnapul's Oil. All rights reserved.</p>
 </footer>
 
 <!-- FLOATING WHATSAPP -->
-<a href="https://wa.me/2348130291398" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/2348000000000" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <script>
 function toggleMenu(){document.getElementById('navLinks').classList.toggle('active')}
@@ -337,10 +334,10 @@ const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isI
 document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
 
 // Navbar scroll effect
-window.addEventListener('scroll',()=>{document.querySelector('.navbar').style.background=window.scrollY>50?'rgba(255,255,255,.98)':'var(--white)'});
+window.addEventListener('scroll',()=>{const nav=document.querySelector('.navbar');if(window.scrollY>50){nav.style.background='rgba(255,255,255,0.98)';nav.style.boxShadow='0 2px 20px rgba(0,0,0,0.12)'}else{nav.style.background='var(--white)';nav.style.boxShadow='0 2px 20px rgba(0,0,0,0.08)'}});
 
 // Form handler
-function handleSubmit(e){e.preventDefault();const form=e.target;const name=form.querySelector('input[type=text]').value;const phone=form.querySelector('input[type=tel]').value;const msg=form.querySelector('textarea').value;const waMsg=encodeURIComponent('Hello! My name is '+name+'. Phone: '+phone+'. '+msg);window.open('https://wa.me/2348130291398?text='+waMsg,'_blank');alert('Thank you! Your message has been sent via WhatsApp.');form.reset()}
+function handleSubmit(e){e.preventDefault();const form=e.target;const name=form.querySelector('input[type=text]').value;const phone=form.querySelector('input[type=tel]').value;const msg=form.querySelector('textarea').value;const waMsg=encodeURIComponent('Hello! My name is '+name+'. Phone: '+phone+'. '+msg);window.open('https://wa.me/2348000000000?text='+waMsg,'_blank');alert('Thank you! Your message has been sent via WhatsApp.');form.reset()}
 </script>
 </body>
 </html>
