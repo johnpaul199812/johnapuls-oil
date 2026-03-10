@@ -73,7 +73,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
 .btn-secondary:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
 .hero-visual{position:relative;display:flex;justify-content:center;align-items:center}
 .hero-image-wrapper{position:relative;width:420px;height:420px}
-.hero-image-wrapper img{width:100%;height:100%;object-fit:contain;position:relative;z-index:2;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.3));animation:hero-float 6s ease-in-out infinite}
+.hero-image-wrapper img{width:100%;height:100%;object-fit:contain;position:relative;z-index:2;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.3));animation:hero-float 6s ease-in-out infinite;mix-blend-mode:multiply;border-radius:24px}
 @keyframes hero-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
 .hero-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:350px;height:350px;background:radial-gradient(circle,rgba(212,160,23,0.2) 0%,transparent 70%);border-radius:50%;animation:glow-pulse 4s ease-in-out infinite}
 @keyframes glow-pulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.5}50%{transform:translate(-50%,-50%) scale(1.3);opacity:1}}
@@ -122,7 +122,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
 .product-card:hover::before{transform:scaleX(1)}
 .product-badge{position:absolute;top:20px;right:20px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--crimson-dark);padding:6px 14px;border-radius:20px;font-size:.75rem;font-weight:700;z-index:2;text-transform:uppercase}
 .product-image{height:280px;background:linear-gradient(135deg,#fff5e6,#ffe8cc);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
-.product-image img{max-height:240px;max-width:90%;object-fit:contain;transition:transform .6s}
+.product-image img{max-height:240px;max-width:90%;object-fit:contain;transition:transform .6s;mix-blend-mode:multiply}
 .product-card:hover .product-image img{transform:scale(1.08) rotate(1deg)}
 .product-info{padding:28px}
 .product-name{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;margin-bottom:8px;color:var(--crimson)}
