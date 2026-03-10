@@ -1,11 +1,12 @@
 // Service Worker - Johnapuls Oil PWA
-var CACHE_NAME = 'johnapuls-oil-v2';
+var CACHE_NAME = 'johnapuls-oil-v3';
 var urlsToCache = [
   '/johnapuls-oil/',
   '/johnapuls-oil/index.html'
 ];
 
 self.addEventListener('install', function(event) {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then(function(cache) {
       return cache.addAll(urlsToCache);
@@ -43,6 +44,8 @@ self.addEventListener('activate', function(event) {
           return caches.delete(cacheName);
         })
       );
+    }).then(function() {
+      return self.clients.claim();
     })
   );
 });
