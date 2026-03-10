@@ -1909,15 +1909,19 @@ document.getElementById('backToTop').addEventListener('click', function() {
 // ===== PREMIUM FEATURES =====
 
 // 7. Preloader
-window.addEventListener('load', function() {
-  setTimeout(function() {
-    var preloader = document.getElementById('preloader');
-    if (preloader) {
-      preloader.classList.add('hidden');
-      setTimeout(function() { preloader.style.display = 'none'; }, 600);
-    }
-  }, 2200);
+function hidePreloader() {
+  var preloader = document.getElementById('preloader');
+  if (preloader && !preloader.classList.contains('hidden')) {
+    preloader.classList.add('hidden');
+    setTimeout(function() { preloader.style.display = 'none'; }, 600);
+  }
+}
+// Hide after DOM is ready (fast)
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(hidePreloader, 800);
 });
+// Hard fallback: always hide after 3 seconds no matter what
+setTimeout(hidePreloader, 3000);
 
 // 8. Particles
 (function() {
