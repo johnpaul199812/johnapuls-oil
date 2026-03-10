@@ -445,18 +445,18 @@ img{max-width:100%;display:block}
 /* ============================================ */
 /* === FEATURE 5: FAQ ACCORDION ============== */
 /* ============================================ */
-.faq-section{padding:100px 0;background:#0a0a0a}
-.faq-section h2{color:#D4A017;margin-bottom:8px}
-.faq-grid{max-width:800px;margin:40px auto 0;display:flex;flex-direction:column;gap:12px}
-.faq-item{background:#1a1a1a;border-radius:14px;border-left:4px solid #DAA520;overflow:hidden;transition:all .3s ease}
-.faq-item:hover{box-shadow:0 4px 20px rgba(218,165,32,0.15)}
-.faq-question{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;cursor:pointer;gap:16px;user-select:none}
-.faq-question h4{font-family:'DM Sans',sans-serif;font-size:16px;font-weight:600;color:#fff;margin:0;flex:1;line-height:1.5}
-.faq-chevron{width:28px;height:28px;border-radius:50%;background:rgba(218,165,32,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .35s ease,background .3s}
-.faq-chevron svg{width:14px;height:14px;stroke:#DAA520;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.faq-item.open .faq-chevron{transform:rotate(180deg);background:rgba(218,165,32,0.3)}
-.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
-.faq-answer p{padding:0 24px 20px;font-size:15px;color:#aaa;line-height:1.8;margin:0}
+/* === FAQ ACCORDION === */
+.faq-section { background:rgba(255,255,255,0.02); }
+.faq-grid { max-width:800px; margin:0 auto; display:flex; flex-direction:column; gap:12px; }
+.faq-item { background:var(--white,#1a1a1a); border:1px solid var(--border); border-radius:var(--radius-sm); overflow:hidden; transition:all .3s ease; }
+.faq-item.active { border-color:var(--amber); }
+.faq-question { display:flex; align-items:center; justify-content:space-between; padding:20px 24px; cursor:pointer; font-weight:600; font-size:16px; color:var(--text); transition:all .3s ease; gap:16px; }
+.faq-question:hover { color:var(--amber); }
+.faq-question .faq-icon { font-size:20px; color:var(--amber); transition:transform .3s ease; flex-shrink:0; }
+.faq-item.active .faq-icon { transform:rotate(45deg); }
+.faq-answer { max-height:0; overflow:hidden; transition:max-height .4s ease, padding .3s ease; }
+.faq-answer-inner { padding:0 24px 20px; color:var(--text-secondary); line-height:1.8; font-size:15px; }
+.faq-item.active .faq-answer { max-height:300px; }
 
 /* ============================================ */
 /* === FEATURE 6: CUSTOMER STATS COUNTER ===== */
@@ -643,6 +643,105 @@ img{max-width:100%;display:block}
 .updates-section .btn-updates:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(37,211,102,0.5);background:#20bd5a}
 .updates-section .updates-note{color:rgba(255,255,255,0.5);font-size:13px;margin-top:16px}
 
+
+/* === LIGHT MODE === */
+[data-theme="light"] {
+  --cream:#FFFDF5; --white:#FFFFFF; --dark:#1a1a1a; --text:#333333;
+  --text-secondary:#555555; --text-light:#777777; --border:rgba(0,0,0,0.08);
+  --shadow:0 2px 12px rgba(0,0,0,0.08); --shadow-md:0 4px 20px rgba(0,0,0,0.1);
+  --shadow-lg:0 8px 30px rgba(0,0,0,0.12); --shadow-sm:0 1px 6px rgba(0,0,0,0.05);
+}
+[data-theme="light"] body { background:#FFFDF5; }
+[data-theme="light"] .navbar { background:rgba(255,253,245,0.95); }
+[data-theme="light"] .navbar.scrolled { background:rgba(255,253,245,0.98); box-shadow:0 2px 20px rgba(0,0,0,0.08); }
+[data-theme="light"] .nav-links a { color:#555; }
+[data-theme="light"] .mobile-toggle span { background:#333; }
+[data-theme="light"] .mobile-menu-overlay { background:rgba(255,253,245,0.98); }
+[data-theme="light"] .section { background:transparent; }
+[data-theme="light"] h1,[data-theme="light"] h2,[data-theme="light"] h3,[data-theme="light"] h4 { color:#B8860B; }
+[data-theme="light"] .product-card,[data-theme="light"] .testimonial-card { background:#FFFFFF; border-color:rgba(0,0,0,0.08); }
+[data-theme="light"] .footer { background:#1a1a1a; color:#ccc; }
+.theme-toggle { width:42px; height:42px; border-radius:50%; border:2px solid rgba(255,255,255,0.15); background:transparent; color:#D4A017; font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .3s ease; }
+.theme-toggle:hover { background:rgba(212,160,23,0.15); transform:scale(1.1); }
+[data-theme="light"] .theme-toggle { border-color:rgba(0,0,0,0.15); color:#B8860B; }
+
+/* === PROMO BANNER === */
+.promo-banner { position:fixed; top:0; left:0; right:0; z-index:1002; padding:10px 20px; text-align:center; font-size:14px; font-weight:600; color:#fff; display:flex; align-items:center; justify-content:center; gap:12px; transition:transform .3s ease; }
+.promo-banner.hidden { transform:translateY(-100%); }
+.promo-banner .countdown { font-family:monospace; font-size:16px; background:rgba(0,0,0,0.25); padding:2px 10px; border-radius:6px; letter-spacing:1px; }
+.promo-banner .close-promo { position:absolute; right:16px; top:50%; transform:translateY(-50%); background:none; border:none; color:#fff; font-size:18px; cursor:pointer; opacity:0.7; }
+.promo-banner .close-promo:hover { opacity:1; }
+body.has-promo .navbar { top:40px; }
+body.has-promo .scroll-progress { top:calc(40px + var(--navbar-h, 62px)); }
+@media(max-width:768px){ .promo-banner { font-size:12px; padding:8px 40px 8px 12px; } .promo-banner .countdown { font-size:13px; } }
+
+/* === PRODUCT MODAL === */
+.product-modal-overlay { position:fixed; inset:0; z-index:2000; background:rgba(0,0,0,0.8); backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; transition:all .3s ease; padding:20px; }
+.product-modal-overlay.active { opacity:1; visibility:visible; }
+.product-modal { background:var(--white,#1a1a1a); border-radius:var(--radius); max-width:560px; width:100%; max-height:85vh; overflow-y:auto; position:relative; transform:scale(0.9) translateY(20px); transition:transform .3s ease; }
+.product-modal-overlay.active .product-modal { transform:scale(1) translateY(0); }
+.product-modal-close { position:absolute; top:12px; right:12px; width:36px; height:36px; border-radius:50%; border:none; background:rgba(0,0,0,0.5); color:#fff; font-size:18px; cursor:pointer; z-index:1; display:flex; align-items:center; justify-content:center; }
+.product-modal-img { width:100%; height:260px; object-fit:cover; border-radius:var(--radius) var(--radius) 0 0; }
+.product-modal-body { padding:24px; }
+.product-modal-body h3 { font-size:28px; margin-bottom:8px; }
+.product-modal-body .modal-price { font-size:22px; color:var(--green); font-weight:700; margin-bottom:16px; }
+.product-modal-body .modal-info { color:var(--text-secondary); line-height:1.8; margin-bottom:20px; font-size:14px; }
+.product-modal-body .modal-order-btn { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; padding:14px; background:var(--green); color:#fff; border:none; border-radius:50px; font-size:16px; font-weight:600; cursor:pointer; transition:all .3s ease; }
+.product-modal-body .modal-order-btn:hover { background:var(--green-light); transform:translateY(-2px); }
+
+
+/* === REVIEW FORM === */
+.review-trigger { display:inline-flex; align-items:center; gap:8px; padding:12px 28px; background:transparent; border:2px solid var(--amber); color:var(--amber); border-radius:50px; font-size:15px; font-weight:600; cursor:pointer; transition:all .3s ease; margin-top:30px; }
+.review-trigger:hover { background:var(--amber); color:#000; }
+.review-modal-overlay { position:fixed; inset:0; z-index:2000; background:rgba(0,0,0,0.8); backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; transition:all .3s ease; padding:20px; }
+.review-modal-overlay.active { opacity:1; visibility:visible; }
+.review-modal { background:var(--white,#1a1a1a); border-radius:var(--radius); max-width:480px; width:100%; padding:32px; position:relative; }
+.review-modal h3 { font-size:28px; margin-bottom:20px; text-align:center; }
+.review-modal .star-rating { display:flex; gap:8px; justify-content:center; margin-bottom:20px; }
+.review-modal .star-rating i { font-size:28px; color:var(--border); cursor:pointer; transition:all .2s ease; }
+.review-modal .star-rating i.active { color:#FFD700; }
+.review-modal .star-rating i:hover { color:#FFD700; transform:scale(1.2); }
+.review-modal input, .review-modal textarea { width:100%; padding:12px 16px; background:rgba(255,255,255,0.05); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text); font-family:inherit; font-size:14px; margin-bottom:12px; outline:none; transition:border .3s ease; }
+.review-modal input:focus, .review-modal textarea:focus { border-color:var(--amber); }
+.review-modal textarea { min-height:100px; resize:vertical; }
+.review-modal .submit-review { width:100%; padding:14px; background:var(--green); color:#fff; border:none; border-radius:50px; font-size:16px; font-weight:600; cursor:pointer; transition:all .3s ease; }
+.review-modal .submit-review:hover { background:var(--green-light); }
+.review-modal .close-review { position:absolute; top:12px; right:12px; width:32px; height:32px; border-radius:50%; border:none; background:rgba(255,255,255,0.1); color:var(--text); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+.user-reviews { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:20px; margin-top:30px; }
+.user-review-card { background:var(--white,#1a1a1a); border:1px solid var(--border); border-radius:var(--radius-sm); padding:20px; }
+.user-review-card .review-stars { color:#FFD700; margin-bottom:8px; }
+.user-review-card .review-author { font-weight:600; color:var(--amber); }
+.user-review-card .review-location { color:var(--text-light); font-size:13px; }
+.user-review-card .review-date { color:var(--text-light); font-size:12px; margin-top:8px; }
+.user-review-card .review-text { color:var(--text-secondary); margin-top:8px; line-height:1.6; }
+.toast-notification { position:fixed; bottom:30px; left:50%; transform:translateX(-50%) translateY(100px); background:var(--green); color:#fff; padding:14px 28px; border-radius:50px; font-weight:600; z-index:3000; transition:transform .4s ease; box-shadow:0 4px 20px rgba(0,0,0,0.3); }
+.toast-notification.show { transform:translateX(-50%) translateY(0); }
+[data-theme="light"] .review-modal input, [data-theme="light"] .review-modal textarea { background:rgba(0,0,0,0.03); color:#333; }
+/* === SCROLL PROGRESS BAR === */
+.nav-progress { position:absolute; bottom:0; left:0; height:3px; background:linear-gradient(90deg, var(--green), var(--amber)); width:0%; transition:width 0.1s linear; z-index:1001; }
+/* === COMPARISON TABLE === */
+.compare-section { background:rgba(255,255,255,0.02); }
+.compare-table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; border-radius:var(--radius); border:1px solid var(--border); }
+.compare-table { width:100%; border-collapse:collapse; min-width:600px; }
+.compare-table th { background:rgba(212,160,23,0.15); color:var(--amber); font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:700; padding:16px 20px; text-align:center; border-bottom:2px solid var(--amber); }
+.compare-table th:first-child { text-align:left; }
+.compare-table td { padding:14px 20px; text-align:center; border-bottom:1px solid var(--border); color:var(--text); font-size:14px; }
+.compare-table td:first-child { text-align:left; font-weight:600; color:var(--amber); white-space:nowrap; }
+.compare-table tr:hover td { background:rgba(212,160,23,0.05); }
+.compare-table .compare-order-btn { display:inline-flex; align-items:center; gap:6px; padding:8px 16px; background:var(--green); color:#fff; border-radius:50px; font-size:13px; font-weight:600; transition:all .3s ease; }
+.compare-table .compare-order-btn:hover { background:var(--green-light); transform:translateY(-1px); }
+@media(max-width:768px){ .compare-table th,.compare-table td { padding:10px 12px; font-size:13px; } }
+
+/* === PWA INSTALL BANNER === */
+.pwa-install-banner { position:fixed; bottom:0; left:0; right:0; z-index:1500; background:var(--white,#1a1a1a); border-top:2px solid var(--amber); padding:14px 20px; display:flex; align-items:center; justify-content:center; gap:16px; transform:translateY(100%); transition:transform .4s ease; box-shadow:0 -4px 20px rgba(0,0,0,0.3); }
+.pwa-install-banner.show { transform:translateY(0); }
+.pwa-install-banner .pwa-text { font-size:14px; color:var(--text); font-weight:500; }
+.pwa-install-banner .pwa-text i { color:var(--amber); margin-right:6px; }
+.pwa-install-banner .pwa-install-btn { padding:10px 24px; background:var(--green); color:#fff; border:none; border-radius:50px; font-size:14px; font-weight:600; cursor:pointer; transition:all .3s ease; }
+.pwa-install-banner .pwa-install-btn:hover { background:var(--green-light); }
+.pwa-install-banner .pwa-dismiss { padding:8px 16px; background:transparent; border:1px solid var(--border); color:var(--text-secondary); border-radius:50px; font-size:13px; cursor:pointer; transition:all .3s ease; }
+.pwa-install-banner .pwa-dismiss:hover { border-color:var(--text); color:var(--text); }
+@media(max-width:600px){ .pwa-install-banner { flex-wrap:wrap; gap:10px; padding:12px 16px; } .pwa-install-banner .pwa-text { width:100%; text-align:center; font-size:13px; } }
 </style>
 <script type="application/ld+json">
 {
@@ -687,8 +786,27 @@ img{max-width:100%;display:block}
   }
 }
 </script>
+<!-- Google Analytics 4 - Replace G-XXXXXXXXXX with your real Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXXXXX');
+</script>
+<!-- Microsoft Clarity - Replace xxxxxxxxxx with your real Project ID -->
+<script>
+(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","xxxxxxxxxx");
+</script>
 </head>
 <body>
+<!-- Promo Banner -->
+<div class="promo-banner" id="promoBanner" style="background:linear-gradient(135deg,#2E7D32,#D4A017)">
+  <span class="promo-msg">FLASH SALE: 20% OFF All Palm Oil</span>
+  <span class="countdown" id="promoCountdown">23:59:59</span>
+  <button class="close-promo" id="closePromo">&times;</button>
+</div>
+
 
 <!-- Scroll Progress Bar -->
 <div class="scroll-progress" id="scrollProgress"></div>
@@ -741,11 +859,13 @@ img{max-width:100%;display:block}
       <li><a href="#delivery">Delivery</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
     <a href="https://wa.me/2348012345678?text=Hello!%20I%20want%20to%20order%20Johnapul%27s%20Palm%20Oil" target="_blank" class="nav-cta"><i class="fab fa-whatsapp"></i> Order Now</a>
     <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </div>
+<div class="nav-progress" id="navProgress"></div>
 </nav>
 
 <!-- Hero Section -->
@@ -1022,6 +1142,30 @@ img{max-width:100%;display:block}
 </section>
 
 
+<!-- Product Comparison -->
+<section class="section compare-section" id="compare">
+<div class="container">
+<div class="text-center" style="margin-bottom:60px">
+<p style="color:var(--green);font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:13px;margin-bottom:12px">SIDE BY SIDE</p>
+<h2 style="font-size:clamp(32px,5vw,48px);margin-bottom:16px">Compare Our Products</h2>
+<p style="color:var(--text-secondary);max-width:600px;margin:0 auto">Find the perfect oil for your needs</p>
+</div>
+<div class="compare-table-wrap">
+<table class="compare-table">
+<thead><tr><th>Feature</th><th>Palm Oil 25L</th><th>Palm Oil 50L</th><th>Groundnut Oil 10L</th><th>Vegetable Oil 25L</th></tr></thead>
+<tbody>
+<tr><td>Size</td><td>25 Litres</td><td>50 Litres</td><td>10 Litres</td><td>25 Litres</td></tr>
+<tr><td>Price</td><td style="color:var(--green);font-weight:700">&#8358;35,000</td><td style="color:var(--green);font-weight:700">&#8358;65,000</td><td style="color:var(--green);font-weight:700">&#8358;28,000</td><td style="color:var(--green);font-weight:700">&#8358;32,000</td></tr>
+<tr><td>Best For</td><td>Home Cooking</td><td>Restaurants</td><td>Frying &amp; Baking</td><td>Everyday Use</td></tr>
+<tr><td>Shelf Life</td><td>12-18 months</td><td>12-18 months</td><td>6-12 months</td><td>12 months</td></tr>
+<tr><td>Delivery</td><td>Free in Lagos</td><td>Free in Lagos</td><td>Free in Lagos</td><td>Free in Lagos</td></tr>
+<tr><td>Order</td><td><a href="https://wa.me/2348012345678?text=Hi!%20I%20want%20to%20order%20Palm%20Oil%2025L" class="compare-order-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order</a></td><td><a href="https://wa.me/2348012345678?text=Hi!%20I%20want%20to%20order%20Palm%20Oil%2050L" class="compare-order-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order</a></td><td><a href="https://wa.me/2348012345678?text=Hi!%20I%20want%20to%20order%20Groundnut%20Oil%2010L" class="compare-order-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order</a></td><td><a href="https://wa.me/2348012345678?text=Hi!%20I%20want%20to%20order%20Vegetable%20Oil%2025L" class="compare-order-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
 <!-- UPGRADE 2: Bulk & Wholesale Orders Section -->
 <section class="wholesale-section section" id="wholesale">
   <div class="container">
@@ -1150,6 +1294,10 @@ img{max-width:100%;display:block}
         </div>
       </div>
     </div>
+<div class="text-center">
+<button class="review-trigger" id="openReviewForm"><i class="fas fa-pen"></i> Leave a Review</button>
+</div>
+<div class="user-reviews" id="userReviews"></div>
   </div>
 </section>
 
@@ -1224,59 +1372,25 @@ img{max-width:100%;display:block}
   </div>
 </section>
 
-<!-- FAQ Accordion (Feature 5) -->
-<section class="faq-section reveal" id="faq">
-  <div class="container">
-    <div class="text-center reveal">
-      <div class="section-label"><i class="fas fa-question-circle"></i> FAQ</div>
-      <h2>Frequently Asked Questions</h2>
-      <p class="section-subtitle">Everything you need to know about ordering from Johnapul's Oil.</p>
-    </div>
-    <div class="faq-grid">
-      <div class="faq-item reveal reveal-d1">
-        <div class="faq-question">
-          <h4>What areas do you deliver to?</h4>
-          <div class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-        </div>
-        <div class="faq-answer"><p>We deliver across Lagos and surrounding states. Contact us on WhatsApp for delivery to your specific location.</p></div>
-      </div>
-      <div class="faq-item reveal reveal-d2">
-        <div class="faq-question">
-          <h4>What is the minimum order quantity?</h4>
-          <div class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-        </div>
-        <div class="faq-answer"><p>Our minimum order is 1 unit. Bulk discounts for 10+ units.</p></div>
-      </div>
-      <div class="faq-item reveal reveal-d1">
-        <div class="faq-question">
-          <h4>How long does delivery take?</h4>
-          <div class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-        </div>
-        <div class="faq-answer"><p>Lagos: 24-48 hours. Other locations: 2-5 business days.</p></div>
-      </div>
-      <div class="faq-item reveal reveal-d2">
-        <div class="faq-question">
-          <h4>What payment methods do you accept?</h4>
-          <div class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-        </div>
-        <div class="faq-answer"><p>Bank transfers, cash on delivery, and mobile payments.</p></div>
-      </div>
-      <div class="faq-item reveal reveal-d1">
-        <div class="faq-question">
-          <h4>Are your products certified?</h4>
-          <div class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-        </div>
-        <div class="faq-answer"><p>Yes, all products meet Nigerian regulatory standards.</p></div>
-      </div>
-      <div class="faq-item reveal reveal-d2">
-        <div class="faq-question">
-          <h4>Do you offer wholesale pricing?</h4>
-          <div class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-        </div>
-        <div class="faq-answer"><p>Yes! Contact us for wholesale and distributor pricing.</p></div>
-      </div>
-    </div>
-  </div>
+<!-- FAQ Section -->
+<section class="section faq-section" id="faq">
+<div class="container">
+<div class="text-center" style="margin-bottom:60px">
+<p style="color:var(--green);font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:13px;margin-bottom:12px">GOT QUESTIONS?</p>
+<h2 style="font-size:clamp(32px,5vw,48px);margin-bottom:16px">Frequently Asked Questions</h2>
+<p style="color:var(--text-secondary);max-width:600px;margin:0 auto">Everything you need to know about our premium cooking oils</p>
+</div>
+<div class="faq-grid">
+<div class="faq-item"><div class="faq-question">What types of oil do you sell?<i class="fas fa-plus faq-icon"></i></div><div class="faq-answer"><div class="faq-answer-inner">We offer premium Palm Oil, Groundnut Oil, and Vegetable Oil in various sizes from 10L to 50L jerrycans and gallons. All our oils are sourced from trusted Nigerian farms and processed under strict quality controls.</div></div></div>
+<div class="faq-item"><div class="faq-question">What are your delivery areas?<i class="fas fa-plus faq-icon"></i></div><div class="faq-answer"><div class="faq-answer-inner">We deliver across Lagos State including Ikeja, Victoria Island, Lekki, Surulere, Yaba, Mainland, and surrounding areas. Contact us via WhatsApp for delivery to other locations in Nigeria.</div></div></div>
+<div class="faq-item"><div class="faq-question">How long does delivery take?<i class="fas fa-plus faq-icon"></i></div><div class="faq-answer"><div class="faq-answer-inner">Standard delivery takes 24-48 hours within Lagos. Express same-day delivery is available for orders placed before 12pm. We'll confirm your delivery time slot via WhatsApp.</div></div></div>
+<div class="faq-item"><div class="faq-question">What is the shelf life of your oils?<i class="fas fa-plus faq-icon"></i></div><div class="faq-answer"><div class="faq-answer-inner">Our palm oil has a shelf life of 12-18 months when stored in a cool, dry place away from direct sunlight. Groundnut oil lasts 6-12 months. Vegetable oil lasts up to 12 months.</div></div></div>
+<div class="faq-item"><div class="faq-question">Do you offer bulk/wholesale pricing?<i class="fas fa-plus faq-icon"></i></div><div class="faq-answer"><div class="faq-answer-inner">Yes! We offer special pricing for restaurants (5% off), hotels (10% off), and custom rates for large distributors. Contact us via WhatsApp for a personalized bulk quote.</div></div></div>
+<div class="faq-item"><div class="faq-question">What payment methods do you accept?<i class="fas fa-plus faq-icon"></i></div><div class="faq-answer"><div class="faq-answer-inner">We accept bank transfers, cash on delivery, and mobile payments. Payment details are shared via WhatsApp after placing your order. We also support installment payments for large orders.</div></div></div>
+<div class="faq-item"><div class="faq-question">Can I return or exchange products?<i class="fas fa-plus faq-icon"></i></div><div class="faq-answer"><div class="faq-answer-inner">Yes, we offer a 100% money-back guarantee. If you're not satisfied with the quality, contact us within 48 hours of delivery for a full refund or replacement. Your satisfaction is our priority.</div></div></div>
+<div class="faq-item"><div class="faq-question">How do I store cooking oil properly?<i class="fas fa-plus faq-icon"></i></div><div class="faq-answer"><div class="faq-answer-inner">Store in a cool, dry place away from direct sunlight and heat sources. Keep containers tightly sealed after each use. Avoid storing near strong-smelling items as oil can absorb odors.</div></div></div>
+</div>
+</div>
 </section>
 
 <!-- Customer Stats Counter (Feature 6) -->
@@ -1591,6 +1705,117 @@ img{max-width:100%;display:block}
 
 <!-- JavaScript -->
 <script>
+// Theme Toggle
+(function(){
+  const saved = localStorage.getItem('theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
+  document.addEventListener('DOMContentLoaded', function(){
+    const btn = document.getElementById('themeToggle');
+    const icon = btn.querySelector('i');
+    function updateIcon(){ 
+      const t = document.documentElement.getAttribute('data-theme');
+      icon.className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    }
+    updateIcon();
+    btn.addEventListener('click', function(){
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateIcon();
+    });
+  });
+})();
+
+// Promo Banner + Seasonal System
+const PROMO_CONFIG = {
+  active: true,
+  preset: 'default',
+  presets: {
+    default: { message: "FLASH SALE: 20% OFF All Palm Oil", bg: "linear-gradient(135deg, #2E7D32, #D4A017)" },
+    christmas: { message: "Christmas Special: 25% OFF All Orders!", bg: "linear-gradient(135deg, #c62828, #2E7D32)" },
+    ramadan: { message: "Ramadan Kareem! Special prices on bulk orders", bg: "linear-gradient(135deg, #1565C0, #D4A017)" },
+    independence: { message: "Independence Day: Free Delivery on All Orders!", bg: "linear-gradient(135deg, #2E7D32, #fff, #2E7D32)" },
+    easter: { message: "Easter Sale: Buy 2 Get 1 Free!", bg: "linear-gradient(135deg, #7B1FA2, #D4A017)" }
+  }
+};
+(function(){
+  const banner = document.getElementById('promoBanner');
+  const msgEl = document.querySelector('.promo-msg');
+  const countEl = document.getElementById('promoCountdown');
+  const closeBtn = document.getElementById('closePromo');
+  if(!PROMO_CONFIG.active || sessionStorage.getItem('promo_dismissed')){ 
+    banner.classList.add('hidden'); return; 
+  }
+  document.body.classList.add('has-promo');
+  const p = PROMO_CONFIG.presets[PROMO_CONFIG.preset] || PROMO_CONFIG.presets.default;
+  msgEl.textContent = p.message;
+  banner.style.background = p.bg;
+  let endTime = localStorage.getItem('promo_end');
+  if(!endTime || parseInt(endTime) < Date.now()){ 
+    endTime = Date.now() + 24*60*60*1000; 
+    localStorage.setItem('promo_end', endTime); 
+  }
+  function tick(){
+    const diff = parseInt(endTime) - Date.now();
+    if(diff <= 0){ countEl.textContent = '00:00:00'; return; }
+    const h = String(Math.floor(diff/3600000)).padStart(2,'0');
+    const m = String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+    const s = String(Math.floor((diff%60000)/1000)).padStart(2,'0');
+    countEl.textContent = h+':'+m+':'+s;
+    requestAnimationFrame(tick);
+  }
+  tick();
+  closeBtn.addEventListener('click', function(){
+    banner.classList.add('hidden');
+    document.body.classList.remove('has-promo');
+    sessionStorage.setItem('promo_dismissed','1');
+  });
+})();
+
+// Product Quick-View Modal
+(function(){
+  const overlay = document.getElementById('productModal');
+  const modalImg = document.getElementById('modalImg');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalPrice = document.getElementById('modalPrice');
+  const modalInfo = document.getElementById('modalInfo');
+  const modalOrderBtn = document.getElementById('modalOrderBtn');
+  const closeBtn = document.getElementById('productModalClose');
+
+  const productDetails = {
+    'Palm Oil': 'Premium Nigerian red palm oil, rich in vitamins A and E. Cold-pressed from fresh palm fruits for maximum nutrition and authentic flavor. Perfect for traditional Nigerian soups, stews, and jollof rice.',
+    'Groundnut Oil': 'Pure groundnut (peanut) oil with a light, nutty flavor. High smoke point makes it ideal for deep frying, baking, and saut\u00e9ing. Rich in monounsaturated fats for heart health.',
+    'Vegetable Oil': 'Refined vegetable oil blend, light and versatile for everyday cooking. Neutral taste that doesn\'t overpower your dishes. Great for frying, baking, and salad dressings.',
+    'default': 'Premium quality cooking oil sourced from the finest ingredients. Carefully processed to preserve natural nutrients and flavor. Ideal for all your cooking needs.'
+  };
+
+  document.querySelectorAll('.product-card').forEach(function(card){
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function(e){
+      if(e.target.closest('a')) return;
+      const img = card.querySelector('img');
+      const title = card.querySelector('h3') || card.querySelector('.product-title');
+      const price = card.querySelector('.product-price') || card.querySelector('.price');
+      const name = title ? title.textContent.trim() : 'Product';
+      modalImg.src = img ? img.src : '';
+      modalTitle.textContent = name;
+      modalPrice.textContent = price ? price.textContent.trim() : '';
+      let info = productDetails.default;
+      for(const key in productDetails){ if(name.toLowerCase().includes(key.toLowerCase())){ info = productDetails[key]; break; } }
+      modalInfo.textContent = info;
+      modalOrderBtn.onclick = function(){ window.open('https://wa.me/2348012345678?text=Hi! I want to order ' + encodeURIComponent(name), '_blank'); };
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeModal(){ overlay.classList.remove('active'); document.body.style.overflow = ''; }
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function(e){ if(e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
+})();
+
 // 1. Navbar scroll effect
 window.addEventListener('scroll', function() {
   var navbar = document.getElementById('navbar');
@@ -2191,25 +2416,15 @@ window.addEventListener('load', function() {
 // ============================================
 // === FEATURE 5: FAQ ACCORDION ==============
 // ============================================
-(function() {
-  var faqItems = document.querySelectorAll('.faq-item');
-  faqItems.forEach(function(item) {
-    var question = item.querySelector('.faq-question');
-    var answer = item.querySelector('.faq-answer');
-    question.addEventListener('click', function() {
-      var isOpen = item.classList.contains('open');
-      faqItems.forEach(function(other) {
-        other.classList.remove('open');
-        var a = other.querySelector('.faq-answer');
-        if (a) a.style.maxHeight = null;
-      });
-      if (!isOpen) {
-        item.classList.add('open');
-        answer.style.maxHeight = answer.scrollHeight + 'px';
-      }
-    });
+// FAQ Accordion
+document.querySelectorAll('.faq-question').forEach(function(q){
+  q.addEventListener('click', function(){
+    const item = this.parentElement;
+    const wasActive = item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('active'); });
+    if(!wasActive) item.classList.add('active');
   });
-})();
+});
 
 // ============================================
 // === FEATURE 6: STATS COUNT-UP ANIMATION ===
@@ -2399,6 +2614,170 @@ if('serviceWorker' in navigator){
       });
     }
   });
+
+
+// Customer Review System
+(function(){
+  const reviewModal = document.getElementById('reviewModal');
+  const openBtn = document.getElementById('openReviewForm');
+  const closeBtn = document.getElementById('closeReviewModal');
+  const submitBtn = document.getElementById('submitReview');
+  const starContainer = document.getElementById('starRating');
+  const reviewsContainer = document.getElementById('userReviews');
+  const toast = document.getElementById('toast');
+  let selectedStars = 0;
+
+  openBtn.addEventListener('click', function(){ reviewModal.classList.add('active'); document.body.style.overflow='hidden'; });
+  closeBtn.addEventListener('click', function(){ reviewModal.classList.remove('active'); document.body.style.overflow=''; });
+  reviewModal.addEventListener('click', function(e){ if(e.target===reviewModal){ reviewModal.classList.remove('active'); document.body.style.overflow=''; }});
+
+  starContainer.querySelectorAll('i').forEach(function(star){
+    star.addEventListener('click', function(){
+      selectedStars = parseInt(this.dataset.star);
+      starContainer.querySelectorAll('i').forEach(function(s,i){ s.classList.toggle('active', i < selectedStars); });
+    });
+    star.addEventListener('mouseenter', function(){
+      const val = parseInt(this.dataset.star);
+      starContainer.querySelectorAll('i').forEach(function(s,i){ s.classList.toggle('active', i < val); });
+    });
+    star.addEventListener('mouseleave', function(){
+      starContainer.querySelectorAll('i').forEach(function(s,i){ s.classList.toggle('active', i < selectedStars); });
+    });
+  });
+
+  submitBtn.addEventListener('click', function(){
+    const name = document.getElementById('reviewName').value.trim();
+    const location = document.getElementById('reviewLocation').value.trim();
+    const text = document.getElementById('reviewText').value.trim();
+    if(!name || !text || selectedStars === 0){ alert('Please fill in your name, review, and select a star rating.'); return; }
+    const reviews = JSON.parse(localStorage.getItem('customer_reviews') || '[]');
+    reviews.unshift({ name:name, location:location||'Nigeria', text:text, stars:selectedStars, date:new Date().toLocaleDateString('en-NG',{year:'numeric',month:'short',day:'numeric'}) });
+    localStorage.setItem('customer_reviews', JSON.stringify(reviews));
+    reviewModal.classList.remove('active'); document.body.style.overflow='';
+    document.getElementById('reviewName').value=''; document.getElementById('reviewLocation').value=''; document.getElementById('reviewText').value=''; selectedStars=0;
+    starContainer.querySelectorAll('i').forEach(function(s){ s.classList.remove('active'); });
+    renderReviews();
+    toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); }, 3000);
+  });
+
+  function renderReviews(){
+    const reviews = JSON.parse(localStorage.getItem('customer_reviews') || '[]');
+    reviewsContainer.innerHTML = reviews.map(function(r){
+      return '<div class="user-review-card"><div class="review-stars">'+'<i class="fas fa-star"></i>'.repeat(r.stars)+'<i class="far fa-star"></i>'.repeat(5-r.stars)+'</div><p class="review-text">'+r.text+'</p><p><span class="review-author">'+r.name+'</span> <span class="review-location">- '+r.location+'</span></p><p class="review-date">'+r.date+'</p></div>';
+    }).join('');
+  }
+  renderReviews();
+})();
+
+// Nav Progress Bar
+window.addEventListener('scroll', function(){
+  const el = document.getElementById('navProgress');
+  if(!el) return;
+  const winScroll = document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  el.style.width = (height > 0 ? (winScroll / height) * 100 : 0) + '%';
+});
+
+})();
+
+
+// PWA: Manifest + Service Worker + Install Prompt
+(function(){
+  // Create manifest dynamically via blob URL
+  var manifestData = {
+    name: "Johnapul's Oil - Premium Nigerian Palm Oil",
+    short_name: "Johnapuls Oil",
+    description: "Premium cooking oil delivery in Lagos, Nigeria",
+    start_url: "/johnapuls-oil/",
+    display: "standalone",
+    background_color: "#0a0a0a",
+    theme_color: "#DAA520",
+    icons: [
+      { src: "https://johnpaul199812.github.io/johnapuls-oil/favicon.ico", sizes: "64x64", type: "image/x-icon" }
+    ]
+  };
+  var manifestBlob = new Blob([JSON.stringify(manifestData)], {type: 'application/json'});
+  var manifestURL = URL.createObjectURL(manifestBlob);
+  var existingManifest = document.querySelector('link[rel="manifest"]');
+  if(existingManifest) existingManifest.href = manifestURL;
+
+  // Service Worker via blob
+  var swCode = "var CACHE='johnapuls-v3';var URLS=['/johnapuls-oil/'];self.addEventListener('install',function(e){e.waitUntil(caches.open(CACHE).then(function(c){return c.addAll(URLS)}))});self.addEventListener('fetch',function(e){e.respondWith(caches.match(e.request).then(function(r){return r||fetch(e.request).then(function(res){if(res.status===200){var clone=res.clone();caches.open(CACHE).then(function(c){c.put(e.request,clone)})}return res})}))});";
+  if('serviceWorker' in navigator){
+    var swBlob = new Blob([swCode], {type: 'application/javascript'});
+    var swURL = URL.createObjectURL(swBlob);
+    navigator.serviceWorker.register(swURL, {scope: '/'}).catch(function(){});
+  }
+
+  // Install prompt
+  var deferredPrompt = null;
+  var banner = document.getElementById('pwaInstallBanner');
+  var installBtn = document.getElementById('pwaInstallBtn');
+  var dismissBtn = document.getElementById('pwaDismiss');
+
+  if(localStorage.getItem('pwa_dismissed')){ return; }
+
+  window.addEventListener('beforeinstallprompt', function(e){
+    e.preventDefault();
+    deferredPrompt = e;
+    banner.classList.add('show');
+  });
+
+  installBtn.addEventListener('click', function(){
+    if(deferredPrompt){
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(function(result){
+        deferredPrompt = null;
+        banner.classList.remove('show');
+      });
+    }
+  });
+
+  dismissBtn.addEventListener('click', function(){
+    banner.classList.remove('show');
+    localStorage.setItem('pwa_dismissed', '1');
+  });
+
+  window.addEventListener('appinstalled', function(){
+    banner.classList.remove('show');
+    deferredPrompt = null;
+  });
+})();
+
+// Analytics Event Tracking
+(function(){
+  function trackEvent(name, params){
+    if(typeof gtag === 'function') gtag('event', name, params || {});
+  }
+  // Track product card clicks
+  document.querySelectorAll('.product-card').forEach(function(card){
+    card.addEventListener('click', function(){
+      var title = card.querySelector('h3') || card.querySelector('.product-title');
+      trackEvent('view_product', { product_name: title ? title.textContent.trim() : 'unknown' });
+    });
+  });
+  // Track WhatsApp clicks
+  document.querySelectorAll('a[href*="wa.me"], .modal-order-btn, .compare-order-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      trackEvent('whatsapp_click', { button_location: btn.closest('section') ? btn.closest('section').id || 'unknown' : 'floating' });
+    });
+  });
+  // Track theme toggle
+  var themeBtn = document.getElementById('themeToggle');
+  if(themeBtn) themeBtn.addEventListener('click', function(){
+    trackEvent('theme_change', { theme: document.documentElement.getAttribute('data-theme') });
+  });
+  // Track review submission
+  var reviewBtn = document.getElementById('submitReview');
+  if(reviewBtn) reviewBtn.addEventListener('click', function(){
+    trackEvent('review_submit');
+  });
+  // Track FAQ clicks
+  document.querySelectorAll('.faq-question').forEach(function(q){
+    q.addEventListener('click', function(){
+      trackEvent('faq_click', { question: q.textContent.trim().substring(0, 50) });
+    });
+  });
 })();
 
 </script>
@@ -2454,5 +2833,48 @@ if('serviceWorker' in navigator){
 </div>
 
 
+
+<!-- Product Quick-View Modal -->
+<div class="product-modal-overlay" id="productModal">
+  <div class="product-modal">
+    <button class="product-modal-close" id="productModalClose">&times;</button>
+    <img class="product-modal-img" id="modalImg" src="" alt="">
+    <div class="product-modal-body">
+      <h3 id="modalTitle"></h3>
+      <div class="modal-price" id="modalPrice"></div>
+      <div class="modal-info" id="modalInfo"></div>
+      <button class="modal-order-btn" id="modalOrderBtn"><i class="fab fa-whatsapp"></i> Order on WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+<!-- Review Form Modal -->
+<div class="review-modal-overlay" id="reviewModal">
+<div class="review-modal">
+<button class="close-review" id="closeReviewModal">&times;</button>
+<h3>Leave a Review</h3>
+<div class="star-rating" id="starRating">
+<i class="fas fa-star" data-star="1"></i>
+<i class="fas fa-star" data-star="2"></i>
+<i class="fas fa-star" data-star="3"></i>
+<i class="fas fa-star" data-star="4"></i>
+<i class="fas fa-star" data-star="5"></i>
+</div>
+<input type="text" id="reviewName" placeholder="Your Name" required>
+<input type="text" id="reviewLocation" placeholder="Your Location (e.g., Lagos)">
+<textarea id="reviewText" placeholder="Share your experience with our products..."></textarea>
+<button class="submit-review" id="submitReview">Submit Review</button>
+</div>
+</div>
+<!-- Toast -->
+<div class="toast-notification" id="toast">Thank you for your review!</div>
+
+
+<!-- PWA Install Banner -->
+<div class="pwa-install-banner" id="pwaInstallBanner">
+<span class="pwa-text"><i class="fas fa-mobile-alt"></i> Install Johnapul's Oil for quick access!</span>
+<button class="pwa-install-btn" id="pwaInstallBtn">Install App</button>
+<button class="pwa-dismiss" id="pwaDismiss">Not Now</button>
+</div>
 </body>
 </html>
