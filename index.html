@@ -1777,12 +1777,13 @@ const PROMO_CONFIG = {
 // Product Quick-View Modal
 (function(){
   const overlay = document.getElementById('productModal');
+  const closeBtn = document.getElementById('productModalClose');
+  if (!overlay || !closeBtn) return;
   const modalImg = document.getElementById('modalImg');
   const modalTitle = document.getElementById('modalTitle');
   const modalPrice = document.getElementById('modalPrice');
   const modalInfo = document.getElementById('modalInfo');
   const modalOrderBtn = document.getElementById('modalOrderBtn');
-  const closeBtn = document.getElementById('productModalClose');
 
   const productDetails = {
     'Palm Oil': 'Premium Nigerian red palm oil, rich in vitamins A and E. Cold-pressed from fresh palm fruits for maximum nutrition and authentic flavor. Perfect for traditional Nigerian soups, stews, and jollof rice.',
