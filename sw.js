@@ -1,5 +1,5 @@
 // Service Worker - Johnapuls Oil PWA
-var CACHE_NAME = 'johnapuls-oil-v1';
+var CACHE_NAME = 'johnapuls-oil-v2';
 var urlsToCache = [
   '/johnapuls-oil/',
   '/johnapuls-oil/index.html'
