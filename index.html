@@ -221,13 +221,10 @@ img{max-width:100%;display:block}
 .back-to-top:hover{transform:translateY(-4px);background:var(--green-light)}
 
 /* === REVEAL ANIMATIONS === */
-@keyframes revealFallback{to{opacity:1;transform:translate(0)}}
-@keyframes curtainFallback{to{transform:scaleX(0)}}
-.reveal{opacity:0;transform:translateY(40px);transition:all .7s cubic-bezier(.4,0,.2,1);animation:revealFallback .7s ease 2.5s forwards}
-.reveal-left{opacity:0;transform:translateX(-40px);transition:all .7s cubic-bezier(.4,0,.2,1);animation:revealFallback .7s ease 2.5s forwards}
-.reveal-right{opacity:0;transform:translateX(40px);transition:all .7s cubic-bezier(.4,0,.2,1);animation:revealFallback .7s ease 2.5s forwards}
-.reveal.active,.reveal-left.active,.reveal-right.active{opacity:1;transform:translate(0);animation:none}
-.curtain-reveal::after{animation:curtainFallback .8s cubic-bezier(.77,0,.175,1) 2.5s forwards}
+.reveal{opacity:0;transform:translateY(40px);transition:all .7s cubic-bezier(.4,0,.2,1)}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:all .7s cubic-bezier(.4,0,.2,1)}
+.reveal-right{opacity:0;transform:translateX(40px);transition:all .7s cubic-bezier(.4,0,.2,1)}
+.reveal.active,.reveal-left.active,.reveal-right.active{opacity:1;transform:translate(0)}
 .reveal-d1{transition-delay:.1s}
 .reveal-d2{transition-delay:.2s}
 .reveal-d3{transition-delay:.3s}
@@ -1926,6 +1923,16 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 // Hard fallback: always hide after 3 seconds no matter what
 setTimeout(hidePreloader, 3000);
+
+// Fallback: force all reveal elements visible after 3.5s in case IntersectionObserver fails
+setTimeout(function() {
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(function(el) {
+    el.classList.add('active');
+  });
+  document.querySelectorAll('.curtain-reveal').forEach(function(el) {
+    el.classList.add('revealed');
+  });
+}, 3500);
 
 // 8. Particles
 (function() {
