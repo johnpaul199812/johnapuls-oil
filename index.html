@@ -2224,6 +2224,7 @@ setTimeout(function() {
 // ============================================
 (function() {
   var modal = document.getElementById('product-modal');
+  if (!modal) return;
   var modalImg = document.getElementById('modal-img');
   var modalName = document.getElementById('modal-name');
   var modalPrice = document.getElementById('modal-price');
@@ -2297,6 +2298,7 @@ setTimeout(function() {
 // === FEATURE 2: SHOPPING CART + CHECKOUT ===
 // ============================================
 (function() {
+  if (!document.getElementById('cart-badge')) return;
   var cart = JSON.parse(sessionStorage.getItem('jp_cart') || '[]');
   var badge = document.getElementById('cart-badge');
   var panel = document.getElementById('cart-panel');
