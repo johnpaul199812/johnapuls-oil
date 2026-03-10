@@ -273,8 +273,9 @@ img{max-width:100%;display:block}
 
 
 /* === PRELOADER === */
-.preloader{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--green-dark);z-index:100000;display:flex;align-items:center;justify-content:center;transition:opacity .6s ease,visibility .6s ease}
-.preloader.hidden{opacity:0;visibility:hidden}
+@keyframes preloaderAutoHide{0%,80%{opacity:1;visibility:visible;pointer-events:auto}100%{opacity:0;visibility:hidden;pointer-events:none}}
+.preloader{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--green-dark);z-index:100000;display:flex;align-items:center;justify-content:center;transition:opacity .6s ease,visibility .6s ease;animation:preloaderAutoHide 3.5s ease forwards}
+.preloader.hidden{opacity:0;visibility:hidden;pointer-events:none}
 .preloader-inner{text-align:center}
 .preloader-logo{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--amber);margin-bottom:20px;animation:preloaderPulse 1.5s ease-in-out infinite}
 .preloader-bar{width:200px;height:3px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;margin:0 auto}
