@@ -257,6 +257,254 @@ img{max-width:100%;display:block}
   .scroll-indicator{display:none}
   .products-section,.testimonials-section{padding:70px 0}
 }
+
+/* ===== PREMIUM ANIMATION SYSTEM ===== */
+
+/* Scroll Reveal Base States */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(80px);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.85);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-scale.active {
+  opacity: 1;
+  transform: scale(1);
+}
+.reveal-rotate {
+  opacity: 0;
+  transform: perspective(800px) rotateY(15deg) translateX(40px);
+  transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-rotate.active {
+  opacity: 1;
+  transform: perspective(800px) rotateY(0) translateX(0);
+}
+
+/* Stagger delays for product cards */
+.stagger-1 { transition-delay: 0.1s !important; }
+.stagger-2 { transition-delay: 0.2s !important; }
+.stagger-3 { transition-delay: 0.3s !important; }
+.stagger-4 { transition-delay: 0.4s !important; }
+.stagger-5 { transition-delay: 0.5s !important; }
+.stagger-6 { transition-delay: 0.6s !important; }
+
+/* Hero Text Cinematic Entrance */
+@keyframes heroSlideUp {
+  0% { opacity: 0; transform: translateY(80px) scale(0.95); filter: blur(8px); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+@keyframes heroFadeIn {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroLineExpand {
+  0% { width: 0; opacity: 0; }
+  100% { width: 80px; opacity: 1; }
+}
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.hero-section h1,
+.hero-content h1 {
+  animation: heroSlideUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+.hero-section p,
+.hero-content p {
+  animation: heroFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;
+}
+.hero-section .btn,
+.hero-section a[href],
+.hero-content .btn,
+.hero-content a[href*="wa.me"],
+.hero-section a[href*="wa.me"] {
+  animation: heroFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 1.1s both;
+}
+
+/* Premium Product Card Hover */
+.product-card,
+div[style*="border-radius"][style*="overflow: hidden"][style*="background"] {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform, box-shadow;
+}
+.product-card:hover,
+div[style*="border-radius"][style*="overflow: hidden"][style*="background"]:hover {
+  transform: translateY(-16px) scale(1.03) !important;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.15), 0 10px 20px rgba(27,94,32,0.1) !important;
+}
+.product-card img,
+div[style*="border-radius"][style*="overflow: hidden"] img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.product-card:hover img,
+div[style*="border-radius"][style*="overflow: hidden"]:hover img {
+  transform: scale(1.08) !important;
+}
+
+/* Floating Animation for decorative elements */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-12px) rotate(1deg); }
+  66% { transform: translateY(-6px) rotate(-1deg); }
+}
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Smooth Counter Animation */
+@keyframes countPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Button Magnetic Hover Effects */
+a[href*="wa.me"],
+.cta-btn,
+button {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  position: relative;
+  overflow: hidden;
+}
+a[href*="wa.me"]:hover,
+.cta-btn:hover,
+button:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2) !important;
+}
+a[href*="wa.me"]::after,
+.cta-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+a[href*="wa.me"]:hover::after,
+.cta-btn:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Section Title Animations */
+h2 {
+  position: relative;
+}
+
+/* Logo Pulse on Hover */
+img[alt*="logo" i],
+img[alt*="Logo" i],
+nav img {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+img[alt*="logo" i]:hover,
+img[alt*="Logo" i]:hover,
+nav img:hover {
+  transform: scale(1.08) !important;
+  filter: drop-shadow(0 4px 12px rgba(27,94,32,0.3)) !important;
+}
+
+/* Smooth Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Nav Link Hover Underline Animation */
+nav a {
+  position: relative;
+}
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #1B5E20;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Parallax-ready sections */
+.parallax-section {
+  will-change: transform;
+}
+
+/* Image reveal on scroll */
+@keyframes imageReveal {
+  0% { clip-path: inset(100% 0 0 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+
+/* Glowing border for featured products */
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 5px rgba(27,94,32,0.2), 0 8px 25px rgba(0,0,0,0.08); }
+  50% { box-shadow: 0 0 20px rgba(27,94,32,0.3), 0 8px 25px rgba(0,0,0,0.12); }
+}
+
+/* Smooth page load */
+@keyframes pageLoad {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+body {
+  animation: pageLoad 0.8s ease-out;
+}
+
+/* Text shimmer for premium feel */
+.shimmer-text {
+  background: linear-gradient(90deg, #1B5E20, #2E7D32, #4CAF50, #2E7D32, #1B5E20);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Reduced motion respect */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -722,5 +970,198 @@ document.getElementById('backToTop').addEventListener('click', function() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 </script>
+
+
+<script>
+// ===== PREMIUM ANIMATION ENGINE =====
+
+// 1. INTERSECTION OBSERVER - Scroll Reveal System
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+// 2. AUTO-APPLY REVEAL CLASSES
+document.addEventListener('DOMContentLoaded', () => {
+  // Section headings - slide up
+  document.querySelectorAll('h2, h3:not(nav h3)').forEach(el => {
+    if (!el.closest('nav') && !el.closest('header')) {
+      el.classList.add('reveal');
+      revealObserver.observe(el);
+    }
+  });
+
+  // Paragraphs in sections
+  document.querySelectorAll('section p, div[style*="max-width"] > p').forEach(el => {
+    el.classList.add('reveal');
+    revealObserver.observe(el);
+  });
+
+  // Product cards - staggered entrance
+  const productCards = document.querySelectorAll('div[style*="border-radius"][style*="overflow: hidden"][style*="background"]');
+  productCards.forEach((card, index) => {
+    card.classList.add('reveal-scale', `stagger-${(index % 6) + 1}`);
+    revealObserver.observe(card);
+  });
+
+  // Images outside nav (not data-uri src, just the img elements)
+  document.querySelectorAll('section img, main img').forEach(el => {
+    if (!el.closest('nav')) {
+      el.classList.add('reveal');
+      revealObserver.observe(el);
+    }
+  });
+
+  // About section - slide from left
+  const aboutSection = document.querySelector('#about, [id*="about"]');
+  if (aboutSection) {
+    aboutSection.querySelectorAll('div').forEach((el, i) => {
+      el.classList.add(i % 2 === 0 ? 'reveal-left' : 'reveal-right');
+      revealObserver.observe(el);
+    });
+  }
+
+  // CTA sections
+  document.querySelectorAll('a[href*="wa.me"]').forEach(el => {
+    if (!el.closest('nav') && !el.closest('.hero-section') && !el.closest('[class*="hero"]')) {
+      el.classList.add('reveal-scale');
+      revealObserver.observe(el);
+    }
+  });
+});
+
+// 3. SMOOTH PARALLAX on scroll
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      const scrollY = window.scrollY;
+
+      // Parallax for hero section background
+      const hero = document.querySelector('section:first-of-type, .hero-section, [class*="hero"]');
+      if (hero && scrollY < window.innerHeight) {
+        hero.style.transform = `translateY(${scrollY * 0.3}px)`;
+        hero.style.willChange = 'transform';
+      }
+
+      // Subtle parallax for section backgrounds
+      document.querySelectorAll('section').forEach((section, i) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          const speed = 0.05;
+          const yPos = (rect.top - window.innerHeight) * speed;
+          section.style.backgroundPositionY = `${yPos}px`;
+        }
+      });
+
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+
+// 4. MAGNETIC CURSOR EFFECT on buttons
+document.querySelectorAll('a[href*="wa.me"], .cta-btn, button').forEach(btn => {
+  btn.addEventListener('mousemove', (e) => {
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px) scale(1.02)`;
+  });
+  btn.addEventListener('mouseleave', () => {
+    btn.style.transform = 'translate(0, 0) scale(1)';
+  });
+});
+
+// 5. COUNTER ANIMATION for any numbers
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const text = el.textContent;
+      const match = text.match(/[\d,]+/);
+      if (match) {
+        const target = parseInt(match[0].replace(/,/g, ''));
+        if (target > 0 && target < 100000) {
+          const prefix = text.substring(0, text.indexOf(match[0]));
+          const suffix = text.substring(text.indexOf(match[0]) + match[0].length);
+          let current = 0;
+          const duration = 2000;
+          const step = target / (duration / 16);
+          const animate = () => {
+            current += step;
+            if (current < target) {
+              el.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
+              requestAnimationFrame(animate);
+            } else {
+              el.textContent = prefix + target.toLocaleString() + suffix;
+            }
+          };
+          animate();
+        }
+      }
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+
+// 6. TILT EFFECT on product cards
+document.querySelectorAll('div[style*="border-radius"][style*="overflow: hidden"][style*="background"]').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+    const tiltX = (y - 0.5) * 8;
+    const tiltY = (x - 0.5) * -8;
+    card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(-10px) scale(1.02)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
+    card.style.transition = 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+  });
+  card.addEventListener('mouseenter', () => {
+    card.style.transition = 'none';
+  });
+});
+
+// 7. SMOOTH SCROLL PROGRESS INDICATOR
+const progressBar = document.createElement('div');
+progressBar.style.cssText = 'position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#1B5E20,#4CAF50,#81C784);z-index:10000;transition:width 0.1s linear;width:0%;border-radius:0 2px 2px 0;';
+document.body.prepend(progressBar);
+window.addEventListener('scroll', () => {
+  const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  progressBar.style.width = scrollPercent + '%';
+});
+
+// 8. NAVBAR TRANSFORM ON SCROLL
+const nav = document.querySelector('nav') || document.querySelector('header');
+if (nav) {
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+    if (currentScroll > 100) {
+      nav.style.backdropFilter = 'blur(20px)';
+      nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.1)';
+    } else {
+      nav.style.backdropFilter = 'none';
+      nav.style.boxShadow = 'none';
+    }
+    lastScroll = currentScroll;
+  });
+}
+
+// 9. SECTION DIVIDER ANIMATION
+document.querySelectorAll('hr, [style*="border-top"], [style*="border-bottom"]').forEach(divider => {
+  divider.classList.add('reveal');
+  divider.style.transition = 'all 1.5s cubic-bezier(0.16, 1, 0.3, 1)';
+  revealObserver.observe(divider);
+});
+
+console.log('Premium Animation Engine v2.0 loaded');
+</script>
+
 </body>
 </html>
